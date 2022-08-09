@@ -4,6 +4,7 @@ import cn.mgl.flutterspring.entity.Result;
 import org.apache.tomcat.util.http.fileupload.RequestContext;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -20,7 +21,25 @@ public class AuthController {
     }
 
     @GetMapping("getUserInfo")
-    public Result getUserInfo(RequestContext requestContext){
-        return null;
+    public Result getUserInfo() {
+        Map<String, Object> resultUser = new HashMap();
+        resultUser.put("id", (int) Math.floor(Math.random() * 1000));
+        resultUser.put("access_token", "这是测试token");
+        resultUser.put("username", "MongieLee");
+        resultUser.put("phoneNum", "13232251037");
+        resultUser.put("gender", Gender.MEN);
+        return Result.successful(resultUser);
     }
+}
+
+enum Gender {
+    /**
+     * 男性
+     */
+    MEN,
+
+    /**
+     * 女性
+     */
+    WOMEN
 }

@@ -1,6 +1,5 @@
 package cn.mgl.flutterspring.controller;
 
-import ch.qos.logback.core.util.SystemInfo;
 import cn.mgl.flutterspring.entity.CarouselItem;
 import cn.mgl.flutterspring.entity.CourseItem;
 import cn.mgl.flutterspring.entity.Result;
