@@ -14,7 +14,12 @@ public class Result<T> {
         this.data = data;
         this.status = status;
     }
+
     static public <T> Result<T> successful(T data) {
         return new Result("请求成功", data, HttpStatus.OK.value());
+    }
+
+    static public <T> Result<T> failure(String msg, T data) {
+        return new Result(msg, data, HttpStatus.INTERNAL_SERVER_ERROR.value());
     }
 }
