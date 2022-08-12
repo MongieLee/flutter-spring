@@ -2,7 +2,7 @@ package cn.mgl.flutterspring.controller;
 
 import cn.mgl.flutterspring.entity.CarouselItem;
 import cn.mgl.flutterspring.entity.CourseItem;
-import cn.mgl.flutterspring.entity.Result;
+import cn.mgl.flutterspring.entity.ResponseResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping("/api/v1/base")
 public class BaseController {
     @GetMapping("/getCarousels")
-    public Result getCarousel() {
+    public ResponseResult getCarousel() {
         List<CarouselItem> carousels = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             CarouselItem newItem = new CarouselItem();
@@ -26,11 +26,11 @@ public class BaseController {
             newItem.setName("轮播图" + i);
             carousels.add(newItem);
         }
-        return Result.successful(carousels);
+        return ResponseResult.successful(carousels);
     }
 
     @GetMapping("/getCourses")
-    public Result getCourses() {
+    public ResponseResult getCourses() {
         List<CourseItem> carousels = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             CourseItem newItem = new CourseItem();
@@ -39,6 +39,6 @@ public class BaseController {
             newItem.setName("轮播图" + i);
             carousels.add(newItem);
         }
-        return Result.successful(carousels);
+        return ResponseResult.successful(carousels);
     }
 }
