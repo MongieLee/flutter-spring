@@ -3,12 +3,13 @@ package cn.mgl.flutterspring.controller;
 import cn.mgl.flutterspring.entity.CarouselItem;
 import cn.mgl.flutterspring.entity.CourseItem;
 import cn.mgl.flutterspring.entity.ResponseResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import static sun.misc.Version.print;
 
 /**
  * @author mongielee
@@ -40,5 +41,11 @@ public class BaseController {
             carousels.add(newItem);
         }
         return ResponseResult.successful(carousels);
+    }
+
+    @PostMapping("/sendLocation")
+    public ResponseResult getLocation(@RequestBody Map<String, Object> location) {
+        System.out.println(location);
+        return ResponseResult.successful(null);
     }
 }
